@@ -18,7 +18,7 @@ massive(CONNECTION_STRING, {scripts: __dirname + '/db'})
 app.use(express.json())
 app.get('/api/products', controller.getAll)
 app.get('/api/products/:id', controller.getOne)
-app.put('/api/products/:id?desc=...', controller.update)
+app.put('/api/products/:id', controller.update)
 app.post('/api/products', controller.create)
 app.delete('/api/products/:id', controller.delete)
 

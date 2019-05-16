@@ -1,9 +1,10 @@
 const controller = {
     create(req, res, next) {
         const dbInstance = req.app.get('db')
-        const {name, description, price, image_url} = req.body
+        console.log(req.body)
+        const {name, desc, price, image_url} = req.body.newProduct
 
-        dbInstance.create_product([name, description, price, image_url])
+        dbInstance.create_product([name, desc, price, image_url])
         .then(created => {
             console.log(`Hit!`)
             res.status(200).send(created)
@@ -26,7 +27,7 @@ const controller = {
     },
     getAll(req, res, next) {
         const dbInstance = req.app.get('db')
-        console.log(dbInstance.read_products)
+        console.log('made it!')
         dbInstance.read_products()
         .then(products => {
             res.status(200).send(products)
